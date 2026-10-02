@@ -8,7 +8,7 @@
     "ALREADY_TITLE": "Upitnik je već popunjen",
     "ALREADY_TEXT": "Već ste popunili ovaj upitnik, hvala Vam! Možete zatvoriti ovu stranicu.",
     "ERROR_TITLE": "Link nije važeći",
-    "ERROR_EXPIRED": "Ovaj link je istekao (linkovi važe 24 sata). Obratite se istraživaču kako bi Vam poslao novi link.",
+    "ERROR_EXPIRED": "Ovaj link je istekao (linkovi važe 7 dana). Obratite se istraživaču kako bi Vam poslao novi link.",
     "ERROR_NOT_FOUND": "Ovaj link nije prepoznat. Proverite da li ste kopirali ceo link iz mejla, ili se obratite istraživaču.",
     "ERROR_NOT_ACTIVE": "Ovaj link trenutno nije aktivan. Obratite se istraživaču.",
     "ERROR_SERVER": "Došlo je do greške pri proveri linka. Pokušajte ponovo malo kasnije."

@@ -8,7 +8,7 @@
     "ALREADY_TITLE": "Questionnaire already submitted",
     "ALREADY_TEXT": "You've already submitted this questionnaire, thank you! You can close this page.",
     "ERROR_TITLE": "Invalid link",
-    "ERROR_EXPIRED": "This link has expired (links are valid for 24 hours). Contact the researcher so they can send you a new one.",
+    "ERROR_EXPIRED": "This link has expired (links are valid for 7 days). Contact the researcher so they can send you a new one.",
     "ERROR_NOT_FOUND": "This link wasn't recognized. Check that you copied the full link from the email, or contact the researcher.",
     "ERROR_NOT_ACTIVE": "This link isn't currently active. Contact the researcher.",
     "ERROR_SERVER": "An error occurred while checking the link. Try again shortly."
