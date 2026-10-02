@@ -1,0 +1,115 @@
+.form-container {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.form-title {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.form-lead {
+  font-size: 15px;
+  color: var(--color-muted);
+  margin: 0;
+  max-width: 560px;
+}
+
+.question-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.question-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 24px;
+}
+
+.question-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.text-input {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-input);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  outline: none;
+  resize: vertical;
+  transition: border-color var(--transition-fast);
+
+  &::placeholder { color: var(--color-muted); }
+  &:focus { border-color: var(--color-accent); }
+}
+
+.option-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.option-btn {
+  padding: 9px 16px;
+  border-radius: var(--radius-tag);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+
+  &:hover { border-color: var(--color-accent-dim); }
+
+  &--selected {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-on-accent);
+    font-weight: 700;
+  }
+}
+
+.form-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 0 8px;
+}
+
+.submit-hint {
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.field-error {
+  font-size: 13px;
+  color: var(--color-error);
+}
+
+.form-footer .btn-primary {
+  width: auto;
+  min-width: 240px;
+}

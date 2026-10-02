@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npm ci",
+  "buildCommand": "npx ng build --configuration production",
+  "outputDirectory": "dist/demographics-andrejkatin/browser",
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://beyondai-demographics-api.onrender.com/api/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

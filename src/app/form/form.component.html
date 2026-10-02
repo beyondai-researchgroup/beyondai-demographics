@@ -1,0 +1,64 @@
+<div class="page-wrapper">
+  <div class="form-container">
+
+    <header class="form-header">
+      <h1 class="form-title">{{ 'FORM.TITLE' | translate }}</h1>
+      <p class="form-lead">{{ 'FORM.LEAD' | translate }}</p>
+    </header>
+
+    <div class="question-list">
+      @for (question of state.questions; track question.id) {
+        <div class="question-card card">
+          <span class="question-text">{{ promptFor(question) }}</span>
+
+          @if (question.type === 'TEXT') {
+            <textarea
+              class="text-input"
+              rows="3"
+              [ngModel]="answerFor(question.id).value"
+              (ngModelChange)="setTextValue(question.id, $event)"
+            ></textarea>
+          } @else {
+            <div class="option-group" role="radiogroup">
+              @for (option of question.options; track option.id) {
+                <button
+                  type="button"
+                  class="option-btn"
+                  [class.option-btn--selected]="isSelected(question.id, option.id)"
+                  (click)="selectOption(question.id, option.id)"
+                  [attr.aria-pressed]="isSelected(question.id, option.id)"
+                >{{ optionLabel(option) }}</button>
+              }
+            </div>
+            @if (selectedOptionIsOther(question, question.id)) {
+              <input
+                type="text"
+                class="text-input"
+                [placeholder]="'FORM.OTHER_PLACEHOLDER' | translate"
+                [ngModel]="answerFor(question.id).otherText"
+                (ngModelChange)="setOtherText(question.id, $event)"
+              />
+            }
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-footer">
+      @if (!allAnswered()) {
+        <span class="submit-hint">{{ 'FORM.REQUIRED_HINT' | translate }}</span>
+      }
+      @if (submitError()) {
+        <span class="field-error">{{ 'FORM.SUBMIT_ERROR' | translate }}</span>
+      }
+      <button type="button" class="btn-primary" [disabled]="!allAnswered() || submitting()" (click)="submit()">
+        @if (submitting()) {
+          {{ 'FORM.SUBMIT_SENDING' | translate }}
+        } @else {
+          {{ 'FORM.SUBMIT' | translate }}
+        }
+      </button>
+    </div>
+
+  </div>
+</div>

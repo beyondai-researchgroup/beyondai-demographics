@@ -1,0 +1,29 @@
+{
+  "ACCESS_INFO": {
+    "TITLE": "Access via personal link only",
+    "TEXT": "This questionnaire can only be accessed via the personal link you received by email. Check your inbox, or contact the researcher at beyondai.researchgroup@gmail.com if you haven't received it."
+  },
+  "LINK": {
+    "LOADING": "Checking link…",
+    "ALREADY_TITLE": "Questionnaire already submitted",
+    "ALREADY_TEXT": "You've already submitted this questionnaire, thank you! You can close this page.",
+    "ERROR_TITLE": "Invalid link",
+    "ERROR_EXPIRED": "This link has expired (links are valid for 24 hours). Contact the researcher so they can send you a new one.",
+    "ERROR_NOT_FOUND": "This link wasn't recognized. Check that you copied the full link from the email, or contact the researcher.",
+    "ERROR_NOT_ACTIVE": "This link isn't currently active. Contact the researcher.",
+    "ERROR_SERVER": "An error occurred while checking the link. Try again shortly."
+  },
+  "DONE": {
+    "TITLE": "Thank you!",
+    "TEXT": "Your answers have been saved successfully. You can close this page."
+  },
+  "FORM": {
+    "TITLE": "Demographic Questionnaire",
+    "LEAD": "Please answer the following questions. All data is used exclusively for research purposes.",
+    "OTHER_PLACEHOLDER": "Please specify…",
+    "REQUIRED_HINT": "All questions are required.",
+    "SUBMIT": "Submit answers",
+    "SUBMIT_SENDING": "Submitting…",
+    "SUBMIT_ERROR": "Failed to submit. Try again."
+  }
+}

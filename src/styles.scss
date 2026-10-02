@@ -1,0 +1,350 @@
+:root {
+  --color-bg: #0a0e14;
+  --color-surface: #121922;
+  --color-surface-alt: #0a0e14;
+  --color-header-bg: rgba(18, 25, 34, 0.96);
+  --color-border: #1e2d3d;
+  --color-border-strong: #2d3f52;
+  --color-accent: #00ff88;
+  --color-accent-dim: #00cc6a;
+  --color-accent-rgb: 0, 255, 136;
+  --color-muted: #4a5568;
+  --color-muted-rgb: 74, 85, 104;
+  --color-text: #e2e8f0;
+  --color-text-secondary: #a0aec0;
+  --color-white: #ffffff;
+  --color-navy: #1a2744;
+  --color-error: #fc8181;
+  --color-error-rgb: 252, 129, 129;
+  --color-error-bg: rgba(252, 129, 129, 0.07);
+  --color-error-border: rgba(252, 129, 129, 0.25);
+  --color-on-accent: #0a0e14;
+  --bg-image: url('/assets/bg-nasa-dark.png');
+
+  --header-text: #cfd8d0;
+  --header-ctrl-color: #4a6a58;
+  --header-ctrl-border: #253c50;
+  --header-ctrl-hover-color: #cfd8d0;
+  --header-ctrl-active-bg: #2d6e4e;
+  --header-ctrl-active-color: #e8f4ee;
+
+  --radius-card: 8px;
+  --radius-input: 4px;
+  --radius-tag: 9999px;
+  --shadow-card: 0 0 0 1px var(--color-border), 0 4px 24px rgba(0,0,0,0.4);
+
+  --font-display: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+}
+
+[data-theme='light'] {
+  --color-bg: #f2f7f4;
+  --color-surface: #ffffff;
+  --color-surface-alt: #eaf2ec;
+  --color-header-bg: #1a3a28;
+  --color-border: #c0dbc9;
+  --color-border-strong: #a8cdb5;
+  --color-accent: #16a34a;
+  --color-accent-dim: #15803d;
+  --color-accent-rgb: 22, 163, 74;
+  --color-muted: #6b7280;
+  --color-muted-rgb: 107, 114, 128;
+  --color-text: #1a2e1a;
+  --color-text-secondary: #374151;
+  --color-error: #dc2626;
+  --color-error-rgb: 220, 38, 38;
+  --color-error-bg: #fef2f2;
+  --color-error-border: #fca5a5;
+  --color-on-accent: #ffffff;
+  --bg-image: url('/assets/bg-nasa-light.png');
+
+  --header-text: #ffffff;
+  --header-ctrl-color: rgba(255, 255, 255, 0.55);
+  --header-ctrl-border: rgba(255, 255, 255, 0.25);
+  --header-ctrl-hover-color: #ffffff;
+  --header-ctrl-active-bg: rgba(255, 255, 255, 0.18);
+  --header-ctrl-active-color: #ffffff;
+
+  --shadow-card: 0 0 0 1px var(--color-border), 0 4px 24px rgba(0,0,0,0.08);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: var(--bg-image) center / cover no-repeat;
+  opacity: 0.09;
+  pointer-events: none;
+  z-index: 0;
+}
+
+app-root {
+  position: relative;
+  z-index: 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin: 0;
+}
+
+a { color: var(--color-accent); text-decoration: none; }
+
+// ─── Angular Material dark overrides ────────────────────────────────────────
+
+.mat-mdc-form-field {
+  --mdc-filled-text-field-container-color: var(--color-surface);
+  --mdc-filled-text-field-focus-active-indicator-color: var(--color-accent);
+  --mdc-filled-text-field-label-text-color: var(--color-muted);
+  --mdc-filled-text-field-input-text-color: var(--color-text);
+  --mdc-filled-text-field-focus-label-text-color: var(--color-accent);
+  --mdc-filled-text-field-active-indicator-color: var(--color-border);
+}
+
+.mat-mdc-slider {
+  --mdc-slider-active-track-color: var(--color-accent);
+  --mdc-slider-inactive-track-color: var(--color-border);
+  --mdc-slider-handle-color: var(--color-accent);
+  --mdc-slider-focus-handle-color: var(--color-accent);
+  --mdc-slider-hover-handle-color: var(--color-accent-dim);
+  --mdc-slider-label-container-color: var(--color-accent);
+  --mdc-slider-label-label-text-color: var(--color-on-accent);
+  --mat-slider-ripple-color: rgba(var(--color-accent-rgb),0.15);
+  --mat-slider-hover-state-layer-color: rgba(var(--color-accent-rgb),0.08);
+  --mat-slider-focus-state-layer-color: rgba(var(--color-accent-rgb),0.12);
+}
+
+.mat-mdc-checkbox {
+  --mdc-checkbox-selected-checkmark-color: var(--color-on-accent);
+  --mdc-checkbox-selected-icon-color: var(--color-accent);
+  --mdc-checkbox-selected-focus-icon-color: var(--color-accent);
+  --mdc-checkbox-selected-hover-icon-color: var(--color-accent-dim);
+  --mdc-checkbox-selected-pressed-icon-color: var(--color-accent);
+  --mdc-checkbox-unselected-icon-color: var(--color-muted);
+  --mat-checkbox-label-text-color: var(--color-text);
+}
+
+.mat-mdc-radio-button {
+  --mdc-radio-selected-icon-color: var(--color-accent);
+  --mdc-radio-selected-focus-icon-color: var(--color-accent);
+  --mdc-radio-selected-hover-icon-color: var(--color-accent-dim);
+  --mdc-radio-selected-pressed-icon-color: var(--color-accent);
+  --mdc-radio-unselected-icon-color: var(--color-muted);
+  --mat-radio-label-text-color: var(--color-text);
+  --mat-radio-ripple-color: rgba(var(--color-accent-rgb),0.15);
+}
+
+// ─── Shared layout helpers ───────────────────────────────────────────────────
+
+.page-wrapper {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 16px;
+}
+
+.page-centered {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 32px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  border: none;
+  border-radius: var(--radius-card);
+  padding: 14px 28px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  width: 100%;
+
+  &:hover:not(:disabled) { background: var(--color-accent-dim); }
+
+  &:disabled {
+    background: var(--color-border);
+    color: var(--color-muted);
+    cursor: not-allowed;
+  }
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-card);
+  padding: 12px 24px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+
+  &:hover:not(:disabled) { background: rgba(var(--color-accent-rgb),0.06); }
+
+  &:disabled {
+    color: var(--color-muted);
+    border-color: var(--color-border);
+    cursor: not-allowed;
+  }
+}
+
+// ─── Custom range slider ─────────────────────────────────────────────────────
+
+input[type="range"].tlx-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    var(--color-accent) 0%,
+    var(--color-accent) var(--fill, 50%),
+    var(--color-border) var(--fill, 50%),
+    var(--color-border) 100%
+  );
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    cursor: pointer;
+    border: 2px solid var(--color-bg);
+    box-shadow: 0 0 0 2px var(--color-accent);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  &::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    cursor: pointer;
+    border: 2px solid var(--color-bg);
+    box-shadow: 0 0 0 2px var(--color-accent);
+  }
+
+  &:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 0 4px rgba(var(--color-accent-rgb),0.25);
+    transform: scale(1.1);
+  }
+
+  &:focus { outline: none; }
+}
+
+// ─── Toggle switch ────────────────────────────────────────────────────────────
+
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+
+  input[type="checkbox"] { display: none; }
+
+  .toggle-track {
+    width: 44px;
+    height: 24px;
+    background: var(--color-border);
+    border-radius: var(--radius-tag);
+    position: relative;
+    transition: background var(--transition-fast);
+    flex-shrink: 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 18px;
+      height: 18px;
+      background: var(--color-muted);
+      border-radius: 50%;
+      transition: transform var(--transition-fast), background var(--transition-fast);
+    }
+  }
+
+  input:checked ~ .toggle-track {
+    background: rgba(var(--color-accent-rgb),0.15);
+    border: 1px solid var(--color-accent);
+
+    &::after {
+      background: var(--color-accent);
+      transform: translateX(20px);
+    }
+  }
+
+  .toggle-label {
+    font-size: 14px;
+    color: var(--color-text);
+  }
+}
+
+// ─── Progress bar ─────────────────────────────────────────────────────────────
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--color-border);
+  border-radius: 2px;
+  overflow: hidden;
+
+  .progress-fill {
+    height: 100%;
+    background: var(--color-accent);
+    border-radius: 2px;
+    transition: width 250ms ease;
+  }
+}

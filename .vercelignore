@@ -1,0 +1,11 @@
+.env
+.env.*
+node_modules
+dist
+.angular
+.vscode
+server
+server.mjs
+scripts
+docker
+docs
