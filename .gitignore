@@ -44,3 +44,9 @@ Thumbs.db
 # Environment / secrets
 .env
 .env.local
+
+# Vercel CLI project link
+.vercel
+
+.vercel
+.env*
