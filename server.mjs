@@ -193,6 +193,12 @@ app.post('/api/link/:token/submit', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Demographics API server listening on http://localhost:${PORT}`);
-});
+// On Vercel this app runs as a serverless function (api/index.mjs imports it) — only bind a port
+// when started directly for local dev (npm run serve:api).
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Demographics API server listening on http://localhost:${PORT}`);
+  });
+}
+
+export default app;
