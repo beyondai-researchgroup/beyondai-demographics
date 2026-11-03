@@ -11,11 +11,12 @@ interface LinkResolveResponse {
   participantId: string;
   lang: 'sr' | 'en';
   questions: DemographicQuestion[];
+  showBranding?: boolean;
 }
 
 export type LinkResolveResult =
   | ({ ok: true; token: string } & LinkResolveResponse)
-  | { ok: false; error: 'NOT_FOUND' | 'EXPIRED' | 'ALREADY_COMPLETED' | 'NOT_ACTIVE' | 'SERVER_ERROR' };
+  | { ok: false; error: 'NOT_FOUND' | 'EXPIRED' | 'ALREADY_COMPLETED' | 'NOT_ACTIVE' | 'SERVER_ERROR'; showBranding?: boolean };
 
 export interface AnswerPayload {
   value: string;
@@ -39,7 +40,7 @@ export class DatabaseService {
     } catch (err: any) {
       const code = err?.error?.error;
       if (code === 'NOT_FOUND' || code === 'EXPIRED' || code === 'ALREADY_COMPLETED' || code === 'NOT_ACTIVE') {
-        return { ok: false, error: code };
+        return { ok: false, error: code, showBranding: err?.error?.showBranding };
       }
       return { ok: false, error: 'SERVER_ERROR' };
     }

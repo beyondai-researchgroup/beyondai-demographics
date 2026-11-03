@@ -2,6 +2,7 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { StateService } from '../services/state.service';
+import { BrandingService } from '../services/branding.service';
 import { DatabaseService } from '../services/database.service';
 
 type LinkStatus = 'loading' | 'already' | 'error';
@@ -90,6 +91,7 @@ export class LinkAccessComponent implements OnInit {
   private router = inject(Router);
   private db = inject(DatabaseService);
   private state = inject(StateService);
+  private branding = inject(BrandingService);
 
   readonly status = signal<LinkStatus>('loading');
   readonly errorCode = signal<LinkErrorCode | null>(null);
@@ -103,6 +105,9 @@ export class LinkAccessComponent implements OnInit {
     }
 
     const result = await this.db.resolveLink(token);
+    // Whether this research shows the BeyondAI logo / name (the answer carries it, errors that know the research too).
+    const brandFlag = result.showBranding;
+    if (brandFlag !== undefined) this.branding.set(brandFlag !== false);
     if (result.ok) {
       this.state.setState({
         participantId: result.participantId,

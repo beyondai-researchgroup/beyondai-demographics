@@ -1,6 +1,7 @@
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Theme, ThemeService } from '../services/theme.service';
+import { BrandingService } from '../services/branding.service';
 
 @Component({
   selector: 'app-global-header',
@@ -9,10 +10,12 @@ import { Theme, ThemeService } from '../services/theme.service';
   template: `
     <header class="global-header">
       <div class="header-brand">
-        <div class="brand-logo-wrap">
-          <img [src]="logoSrc()" alt="BeyondAI" class="brand-logo" />
-        </div>
-        <span class="brand-name">BeyondAI Research Group</span>
+        @if (branding.visible()) {
+          <div class="brand-logo-wrap">
+            <img [src]="logoSrc()" alt="BeyondAI" class="brand-logo" />
+          </div>
+          <span class="brand-name">BeyondAI Research Group</span>
+        }
       </div>
       <div class="header-controls">
         <div class="toggle-group" aria-label="Theme">
@@ -150,6 +153,7 @@ import { Theme, ThemeService } from '../services/theme.service';
 export class GlobalHeaderComponent implements OnInit {
   private translate = inject(TranslateService);
   private themeService = inject(ThemeService);
+  readonly branding = inject(BrandingService);
 
   readonly currentLang = signal('sr');
   readonly currentTheme = this.themeService.theme;
