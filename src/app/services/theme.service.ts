@@ -3,7 +3,8 @@ import { Injectable, PLATFORM_ID, inject, signal } from '@angular/core';
 
 export type Theme = 'dark' | 'light';
 
-const STORAGE_KEY = 'taskapp-theme';
+// Participants start on the light theme; -v2 so a choice stored before that default existed is not carried over.
+const STORAGE_KEY = 'taskapp-theme-v2';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
@@ -29,8 +30,8 @@ export class ThemeService {
   }
 
   private readInitialTheme(): Theme {
-    if (!this.isBrowser) return 'dark';
-    return localStorage.getItem(STORAGE_KEY) === 'light' ? 'light' : 'dark';
+    if (!this.isBrowser) return 'light';
+    return localStorage.getItem(STORAGE_KEY) === 'dark' ? 'dark' : 'light';
   }
 
   private applyTheme(theme: Theme): void {
